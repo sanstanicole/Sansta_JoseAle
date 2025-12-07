@@ -2,35 +2,34 @@
 const targetDate = "2026-07-01T00:00:00";
 ---
 
-<div
-    class="flex flex-col justify-center gap-10 items-center h-[80vh] bg-[#ffb88b]"
->
-    <h2>Wedding Bells Are Ringing:</h2>
-    <h3 class="text-6xl">July 24, 2026</h3>
-    <span id="countdown" class="text-4xl font-light"></span>
+<div class="flex flex-col justify-center items-center h-[80vh]">
+  <img src={"/WeddingDateBanner.png"} class="w-3/4" alt="Wedding Date Banner" />
+
+  <h2>Wedding Bells Are Ringing in:</h2>
+  <span id="countdown" class="text-4xl font-light mt-6"></span>
 </div>
 
 <script>
-    const target = new Date("2026-07-01T00:00:00");
+  const target = new Date("2026-07-01T00:00:00");
 
-    function updateCountdown() {
-        const now = new Date();
-        const diff = target - now;
+  function updateCountdown() {
+    const now = new Date();
+    const diff = target - now;
 
-        if (diff <= 0) {
-            document.getElementById("countdown").textContent = "¡Llegó el día!";
-            return;
-        }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        document.getElementById("countdown").textContent =
-            `${days} días · ${hours}h · ${minutes}m · ${seconds}s`;
+    if (diff <= 0) {
+      document.getElementById("countdown").textContent = "¡Llegó el día!";
+      return;
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("countdown").textContent =
+      `${days} días 𖹭 ${hours}h 𖹭 ${minutes}m 𖹭 ${seconds}s`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 </script>
