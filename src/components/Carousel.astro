@@ -1,0 +1,46 @@
+---
+const images = ["/1.jpeg", "/2.jpeg", "/3.jpeg", "/home.jpeg"];
+---
+
+<div class="relative overflow-hidden whitespace-nowrap pt-[20vh] bg-gray-100">
+    <h1
+        class="absolute top-1/2 left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 text-6xl font-light font-merriweather text-white text-center"
+    >
+        We are getting Married!!
+    </h1>
+    <div class="flex animate-scroll h-[80vh]">
+        {
+            images
+                .concat(images)
+                .map((img, i) => (
+                    <img
+                        src={img}
+                        class="h-full w-auto object-cover inline-block"
+                        alt={`img-${i}`}
+                    />
+                ))
+        }
+    </div>
+</div>
+
+<style>
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .animate-scroll {
+        animation: scroll 20s linear infinite;
+    }
+
+    h1 {
+        font-family: "Merriweather", sans-serif;
+    }
+</style>

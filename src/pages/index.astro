@@ -1,20 +1,12 @@
 ---
-import "../styles/global.css";
+import Layout from "../layout/Layout.astro";
+import Carousel from "../components/Carousel.astro";
+import Countdown from "../components/Countdown.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Sansta + Alejandro</title>
-	</head>
-	<body
-		class="bg-gradient-to-br from-pink-100 to-purple-100 min-h-screen flex items-center justify-center"
-	>
-		<h1 class="text-6xl font-bold text-purple-800 text-center">
-			Sansta + Alejandro's Wedding
-		</h1>
-	</body>
-</html>
+<Layout>
+	<Carousel />
+
+
+	<Countdown />
+</Layout>
