@@ -1,0 +1,70 @@
+---
+import Layout from "../layout/Layout.astro";
+---
+
+<Layout>
+    <div
+        class="flex relative flex-col items-center justify-center mt-20 h-[80vh]"
+    >
+        <div class="container absolute top-0 w-[500px] z-20">
+            <div id="fondo1" class="absolute bg-green-500 w-full h-[200px]">
+            </div>
+            <div
+                id="fondo2"
+                class="absolute top-28 bg-blue-500 w-full h-[200px]"
+            >
+            </div>
+        </div>
+
+        <div
+            id="carta"
+            class="absolute top-0 bg-red-500 w-[490px] h-[300px] z-10"
+        >
+        </div>
+    </div>
+</Layout>
+
+<style>
+    @keyframes openCover {
+        0% {
+            transform: rotateX(0deg);
+        }
+        40% {
+            transform: rotateX(-45deg);
+        }
+        100% {
+            transform: rotateX(-180deg);
+        } /* queda abierta */
+    }
+    @keyframes goUp {
+        0% {
+            transform: translateY(0);
+            scale: 1;
+        }
+        100% {
+            transform: translateY(-100px);
+            scale: 1.1;
+        }
+    }
+
+    @keyframes dropDown {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(1500px); /* baja hacia abajo */
+        }
+    }
+    /* */
+    #fondo1 {
+        transform-style: preserve-3d;
+        transform-origin: top;
+        animation: openCover 1s ease forwards;
+    }
+    #carta {
+        animation: goUp 1s ease forwards 1.3s;
+    }
+    .container {
+        animation: dropDown 1s ease forwards 1.3s;
+    }
+</style>
